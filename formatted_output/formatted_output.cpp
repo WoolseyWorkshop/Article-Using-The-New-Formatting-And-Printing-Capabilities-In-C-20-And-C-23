@@ -14,7 +14,7 @@
  *
  * @section author_formatted_output_cpp Author(s)
  * - Created by John Woolsey on 05-01-2023.
- * - Modified by John Woolsey on 05-03-2023.
+ * - Modified by John Woolsey on 08-19-2023.
  *
  * Copyright (c) 2023 Woolsey Workshop.  All rights reserved.
  */
@@ -31,11 +31,11 @@
  */
 int main() {
    // Datatypes passed into all example formatted printing functions
-   std::string world = "World";
-   std::string int_max_name = "INT_MAX";
-   int int_max_value = INT_MAX;
-   std::string pi_name = "Pi";
-   float pi_value = M_PI;
+   constexpr std::string_view world = "World";
+   constexpr std::string_view int_max_name = "INT_MAX";
+   constexpr int int_max_value = INT_MAX;
+   constexpr std::string_view pi_name = "Pi";
+   constexpr float pi_value = M_PI;
 
    // Example formatted printing functions
    c_standard(world, int_max_name, int_max_value, pi_name, pi_value);
@@ -54,17 +54,17 @@ int main() {
  * @param float_name    The name of the generic floating point parameter.
  * @param float_value   The value of the generic floating point parameter.
  */
-void c_standard(std::string string_value,
-                std::string int_name, int int_value,
-                std::string float_name, float float_value) {
+void c_standard(std::string_view string_value,
+                std::string_view int_name, int int_value,
+                std::string_view float_name, float float_value) {
    // Simple string
    printf("C standard formatted printing with printf():\n");
    // Simple string substitution
-   printf("Hello, %s!\n", string_value.c_str());
+   printf("Hello, %s!\n", std::string(string_value).c_str());
    // Compound string and integer substitution and formatting
-   printf("%7s = %10d\n", int_name.c_str(), int_value);
+   printf("%7s = %10d\n", std::string(int_name).c_str(), int_value);
    // Compound string and floating point substitution and formatting
-   printf("%7s = %10.5f\n\n", float_name.c_str(), float_value);
+   printf("%7s = %10.5f\n\n", std::string(float_name).c_str(), float_value);
 }
 
 
@@ -78,9 +78,9 @@ void c_standard(std::string string_value,
  * @param float_name    The name of the generic floating point parameter.
  * @param float_value   The value of the generic floating point parameter.
  */
-void cpp_standard(std::string string_value,
-                  std::string int_name, int int_value,
-                  std::string float_name, float float_value) {
+void cpp_standard(std::string_view string_value,
+                  std::string_view int_name, int int_value,
+                  std::string_view float_name, float float_value) {
    // Simple string
    std::cout << "C++ standard printing with std::cout and std::endl and formatting with std::fixed, std::setprecision(), and std::setw():\n";
    // Simple string substitution
@@ -103,9 +103,9 @@ void cpp_standard(std::string string_value,
  * @param float_name    The name of the generic floating point parameter.
  * @param float_value   The value of the generic floating point parameter.
  */
-void cpp_format(std::string string_value,
-                std::string int_name, int int_value,
-                std::string float_name, float float_value) {
+void cpp_format(std::string_view string_value,
+                std::string_view int_name, int int_value,
+                std::string_view float_name, float float_value) {
    // Check for format() function (available in C++20)
    #ifdef __cpp_lib_format
       // Simple string
@@ -132,9 +132,9 @@ void cpp_format(std::string string_value,
  * @param float_name    The name of the generic floating point parameter.
  * @param float_value   The value of the generic floating point parameter.
  */
-void cpp_print(std::string string_value,
-               std::string int_name, int int_value,
-               std::string float_name, float float_value) {
+void cpp_print(std::string_view string_value,
+               std::string_view int_name, int int_value,
+               std::string_view float_name, float float_value) {
    // Check for print() and println() functions (expected in C++23)
    #ifdef __cpp_lib_print
       // Simple string

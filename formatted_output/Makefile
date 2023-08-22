@@ -3,12 +3,19 @@
 TARGET = formatted_output
 DOXYGEN_DIR = doxygen
 
+# Choose the compiler.
+# CC = clang++
 CC = g++-13
-# Update the CFLAGS variable to use the appropriate C++ standard.
+# CC = llvm-g++
+
+# Choose the C++ standard.
 # C++20 - Includes the <format> library.
 # CFLAGS = -Wall -Wextra -std=c++20
 # C++23 - Includes the <format> and <print> libraries.
-CFLAGS = -Wall -Wextra -std=c++23
+# CFLAGS = -Wall -Wextra -std=c++23
+# C++2B - Includes the latest C++ draft specification.
+CFLAGS = -Wall -Wextra -std=c++2b
+
 LIBS =
 
 all: $(TARGET)

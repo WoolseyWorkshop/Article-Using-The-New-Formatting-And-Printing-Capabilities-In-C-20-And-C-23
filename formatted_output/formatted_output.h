@@ -53,6 +53,9 @@
  * - *string* Standard Library
  *   - https://en.cppreference.com/w/cpp/header/string
  *   - Provides access to the *string* class.
+ * - *string_view* Standard Library
+ *   - https://en.cppreference.com/w/cpp/header/string_view
+ *   - Provides access to the *string_view* class.
  *
  * @section notes_formatted_output_h Notes
  * - Source file comments are Doxygen compatible.
@@ -62,7 +65,7 @@
  *
  * @section author_formatted_output_h Author(s)
  * - Created by John Woolsey on 05-01-2023.
- * - Modified by John Woolsey on 05-15-2023.
+ * - Modified by John Woolsey on 08-18-2023.
  *
  * Copyright (c) 2023 Woolsey Workshop.  All rights reserved.
  */
@@ -73,11 +76,12 @@
 
 
 // Includes
-#include <climits>   // INT_MAX
-#include <cstdio>    // printf
-#include <iomanip>   // std::setprecision, std::setw
-#include <iostream>  // std::cout, std::endl, std::fixed
-#include <string>    // std::string
+#include <climits>      // INT_MAX
+#include <cstdio>       // printf
+#include <iomanip>      // std::setprecision, std::setw
+#include <iostream>     // std::cout, std::endl, std::fixed
+#include <string>       // std::string
+#include <string_view>  // std::string_view
 
 // Check availability of <format> and <print> libraries
 #ifdef __has_include            // check if __has_include is available
@@ -103,18 +107,18 @@
 
 
 // Prototypes
-void c_standard(std::string string_value,
-                std::string int_name, int int_value,
-                std::string float_name, float float_value);
-void cpp_standard(std::string string_value,
-                  std::string int_name, int int_value,
-                  std::string float_name, float float_value);
-void cpp_format(std::string string_value,
-                std::string int_name, int int_value,
-                std::string float_name, float float_value);
-void cpp_print(std::string string_value,
-               std::string int_name, int int_value,
-               std::string float_name, float float_value);
+void c_standard(std::string_view string_value,
+                std::string_view int_name, int int_value,
+                std::string_view float_name, float float_value);
+void cpp_standard(std::string_view string_value,
+                  std::string_view int_name, int int_value,
+                  std::string_view float_name, float float_value);
+void cpp_format(std::string_view string_value,
+                std::string_view int_name, int int_value,
+                std::string_view float_name, float float_value);
+void cpp_print(std::string_view string_value,
+               std::string_view int_name, int int_value,
+               std::string_view float_name, float float_value);
 
 
 #endif  // FORMATTED_OUTPUT_H
